@@ -1,0 +1,62 @@
+
+<!-- saved from url=(0035)http://localhost:8080/events/edit/5 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
+<script src="./5_files/jquery.min.js.download"></script>        
+<link href="./5_files/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="./5_files/bootstrap.js.download"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="http://localhost:8080/events/edit/5#">Administrator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="http://localhost:8080/speakers/list">speakers <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:8080/speakers/add">add speaker</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link " href="http://localhost:8080/events/add">add event</a>
+                  </li>
+            <li class="nav-item">
+              <a class="nav-link " href="http://localhost:8080/events/list">events</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                        <a class="nav-link " href="http://localhost:8080/logout">logout</a>
+                </li>
+           </ul>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Welcome  </button>
+          </form>
+        </div>
+      </nav>
+
+    { _id: 2, Name: 'mona' },{ _id: 3, Name: 'shimaa' }
+    <form action="http://localhost:8080/events/edit/5" method="POST">
+
+
+    
+    <input type="text" name="id" value="5" disabled=""><br>
+    <input type="text" name="title" value="shimaa"><br>
+    <input type="text" name="mainSpeaker" value="shimaa"><br>
+    <select name="otherSpeakers" multiple="">
+        
+            <option value="3">shimaa</option>
+        
+        </select>
+
+   
+    <input type="submit" value="save">
+    </form>
+   
+<div> FOOTER </div>
+
+</body></html>

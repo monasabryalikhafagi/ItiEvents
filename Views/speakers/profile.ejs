@@ -1,0 +1,56 @@
+<%include ../partials/speaker/header%>
+<style>
+  .one{
+    text-align: center;
+    background-color: antiquewhite;
+   
+  }
+  .one li{
+    list-style: none;
+  }
+</style>
+<div class="contianer"> 
+
+<div>
+    <p>speaker profile </p>
+</div>
+<table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">image</th>
+            <th scope="col">username</th>
+            <th scope="col">password</th>
+            <th scope="col">gender</th>
+            <th scope="col">birthdate</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+              <td><%=speakers._id%></td>
+              <td><%=speakers.Name%></td>
+             
+              <td><img src="/images/<%=speakers.image%>" style="width:100px;height:100px"/></td>
+              <td><%=speakers.username%></td>
+              <td><%=speakers.password%></td>
+              <td><%=speakers.gender%></td>
+              <td><%=speakers.birthdate%></td>
+              <td>
+                <a class="btn btn-primary" href="/speakers/editeprofile/<%=speakers._id%>">Edit</a>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+      <div class="one"> 
+      <h1> speker events</h1>
+     <ul>
+      <% speackerevent.forEach((speaker)=>{ %>
+       <li><%=speaker.title%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/speakers/accept/<%=speakers._id%>">Accept</a>/<a href="/speakers/regict/<%=speakers._id%>"> Regict</a></li>
+      <%})%>
+       </ul>
+      </div>
+  </div>
+<%include ../partials/speaker/footer%>

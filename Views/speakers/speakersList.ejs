@@ -1,0 +1,78 @@
+
+        <%include ../partials/admin/header%>
+        <script>
+            $(()=>{
+              console.log(new Date());
+              $("#details").click((e)=>{
+                console.log(e);
+                //console.log(e.target);
+               // console.log(e.target.className);
+                x=parseInt(e.target.className)
+               
+            $.ajax({
+              
+                url:"http://localhost:8080/admin/getspearker/1",
+                method:"get",
+                data:JSON.stringify({id:x}),
+                contentType:"application/json",
+                success:function(result1){
+                  console.log(x)
+                 // console.log(e.target.className);
+                    // alert("done");
+                    console.log(result1);
+                    global=result1;
+                    let table=$("<table><tr><th>Name</th><th>gender</th></tr></table>");
+                    // result.forEach(element => {
+                    //     tr=$(`<tr><td>${element.Name}</td><td>${element.birthdate}</td></tr>`)
+                    //     table.append(tr);
+                    // });
+                    tr=$(`<tr><td>${result1.Name}</td><td><img src='/images/${result1.image}' style="width:100px;height:100px"></td> <td>${result1.username}</td><td>${result1.password}</td></tr>`)
+                         table.append(tr);
+                   
+
+                    $("#result").append(table);
+                },
+                error:function(err){
+                    alert("err");
+                }
+            });
+
+        });//json
+
+            })   
+            </script>
+<div class="container">
+            <h3 style="text-align:center;"> Speakers List </h3>
+        <table class="table ">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">name</th>
+                    <th scope="col">password</th>
+                    <th scope="col">image</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% speakers.forEach((speaker)=>{%>
+                    <tr>
+                      <td><%=speaker._id%></td>
+                      <td><%=speaker.Name%> <button class="<%=speaker._id%>" id="details">detailes</button></td>
+                      <td><%=speaker.password%></td>
+                      <td><img src="/images/<%=speaker.image%>" style="width:100px;height:100px"/></td>
+                      <td>
+                        <a class="btn btn-primary" href="/speakers/edit/<%=speaker._id%>">Edit</a>
+                        <a class="btn btn-danger" href="/speakers/delete/<%=speaker._id%>">Delete</a>
+                      </td>
+                    </tr>
+                  <%})%>
+                </tbody>
+              </table>
+              
+          <div id="result">
+
+          </div>
+        </div>
+      
+        <br/><%include ../partials/admin/footer%>
+  

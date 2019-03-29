@@ -1,0 +1,37 @@
+
+<%include ../partials/Admin/header %>
+<style>
+    .btn{
+        text-decoration-color: black;
+}
+
+
+</style>
+<script>
+    console.log(events);
+</script>
+  <div class="container"> 
+        <h3 style="text-align:center"> Events List </h3>
+        <table   class="table">
+                <tr><th>id</th><th>title</th><th>speakername</th><th>Others</th></tr>
+                <% events.forEach((event)=>{%>
+                    <tr>
+                        <td><%=event._id%></td>
+                        <td><%=event.title%></td>
+                        <td><%=event.mainSpeaker.Name%> &nbsp; &nbsp; Replay   <span>(<%=event.mainSpeaker.replay%>)</span></td>
+                        <td>
+                            <ul>
+                                <%event.others.forEach((speaker)=>{%>
+                                    <li><%=speaker.Name%>&nbsp; &nbsp; Replay<span>(<%=speaker.replay%>)</span></li>
+                                <%})%>
+                            </ul>
+                        </td>
+                        <td><a class="btn btn-primary" href="/events/edit/<%=event._id%>"> Edit</a>
+                             <a  class="btn btn-danger"href="/events/delete/<%=event._id%>">Delete</a> </td>
+                    </tr>
+                <%})%>
+               
+        
+       </table>
+    </div> 
+<%include ../partials/Admin/footer %>

@@ -1,0 +1,17 @@
+body{
+    background-color: antiquewhite;
+}
+.one{
+    width: 700px;
+    height: 500px;
+    margin: auto;
+    background-color: rgb(204, 98, 160);
+    text-align: center;
+    text-decoration-color:black;
+    text-decoration-style: bold;
+}
+.one input{
+    width:250px ;
+    height: 40px;
+    margin: 10px;
+}

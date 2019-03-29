@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ItiEvents</title>
+        <link rel="stylesheet" href="/css/components.css">
+        <link rel="stylesheet" href="/css/icons.css">
+        <link rel="stylesheet" href="/css/responsee.css">
+        <link rel="stylesheet" href="/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="/owl-carousel/owl.theme.css">
+        <style>
+          #nave2 li{
+           margin-left: 50px;
+          }
+          #nave1{
+            background-color: white;
+            text-color: black;
+          }
+        </style>
+        <!-- CUSTOM STYLE -->
+        <link rel="stylesheet" href="css/template-style.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-ui.min.js"></script>    
+        <script type="text/javascript" src="/js/validation.js"></script> 
+       
+<script src="/jquery.min.js"></script>        
+<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/js/bootstrap.js"></script>
+<script>
+       $(()=>{
+              $("#details").click((e)=>{
+              
+               
+            $.ajax({
+              
+                url:"http://localhost:8080/admin/getspearker",
+                method:"get",
+          
+                contentType:"application/json",
+                success:function(result1){
+                
+ // console.log(e.target.className);
+                    // alert("done");
+                    console.log(result1);
+                    global=result1;
+                    tr=$(`<tr><td>${result1.Name}</td><td><img src='/images/${result1.image}' style="width:100px;height:100px"></td> <td>${result1.username}</td><td>${result1.password}</td> <td>${result1.birthdata}</td><td>${result1.gender}</td></tr>`)
+                    let table=$("<table><tr><th>Name</th><th>image</th><th>username</th><th>password</th><th>birthdata</th><th>image</th></tr></table>");
+             
+                    tr=$(`<tr><td>${result1.Name}</td><td><img src='/images/${result1.image}' style="width:100px;height:100px"></td> <td>${result1.username}</td><td>${result1.password}</td> <td>${result1.birthdata}</td><td>${result1.gender}</td></tr>`)
+                         table.append(tr); 
+                         $("#data").append(table);},
+                error:function(err){
+                    alert("err");
+                }
+            });
+
+        });//json
+
+            })
+</script>
+</head>
+<body>
+  <div class="contianer" > 
+      <div class="bg-info" id="nave1">
+          <div class="line">
+            <div class="s-12 l-2">
+              <a href="index.html" class="logo"><img src="images/logo-free.png" alt=""></a>
+            </div>
+            <div class="top-nav s-12 l-10">
+              <p class="nav-text"></p>
+              <ul class="right chevron">
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">login</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+         
+<div class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Administrator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto" id="nave2">
+            <li class="nav-item active">
+              <a class="nav-link" href="/speakers/list" >Speakers <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active"> 
+              <button id="details"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> speakers detalies</button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/speakers/add">Add Speaker</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link " href="/events/add">Add Event</a>
+                  </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/events/list">Events</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+                <ul class=
+                "navbar-nav mr-auto">
+                <li class="nav-item">
+                        <a class="nav-link " href="/logout">logout</a>
+                </li>
+           </ul>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">speakers details</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body" id="data">
+           
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+       </div>
+     </div>
+   </div>
+ </div>

@@ -1,0 +1,44 @@
+<%include ../partials/Admin/header%>
+
+    <%=allspecker%>
+    <form action="/events/edit/<%=events._id%>" method="POST">
+
+
+    
+    <input type="text" name="id" value=<%=events._id%> disabled /><br/>
+    <input type="text" name="title" value=<%=events.title%> /><br/>
+    <!-- <input type="text" name="mainSpeaker" value=<%=events.mainSpeaker.Name%> /><br/>
+    <select name="otherSpeakers" multiple>
+        <%events.others.forEach((speaker)=>{%>
+            <option value="<%=speaker._id%>"><%=speaker.Name%></option>
+        <%})%>
+        </select> -->
+        <select name="mainSpeaker">
+                <%allspecker.forEach((speaker)=>{%>
+                    <%if(speaker._id==allspecker._id){%>
+                    <option value="<%=speaker._id%>" selected><%=speaker.Name%></option>
+                    <%}else{%>
+                        <option value="<%=speaker._id%>" selected style="background-color:aqua;"><%=speaker.Name%></option>
+                   <%}%>   
+                <%})%>
+                </select>
+        <select name="otherSpeakers" multiple>
+                <%allspecker.forEach((speaker)=>{%>
+                    <%if(speaker._id==allspecker._id){%>
+                        <option value="<%=speaker._id%>" selected><%=speaker.Name%></option>
+                        <%}else{%>
+                            <option value="<%=speaker._id%>" selected style="background-color:aqua;"><%=speaker.Name%></option>
+                        <%}%>   
+                  
+                <%})%>
+                </select>
+
+
+   
+    <input type="submit" value="save">
+    </form>
+    <script>
+        console.log(allspecker);
+    </script>
+   
+<%include ../partials/Admin/footer%>
